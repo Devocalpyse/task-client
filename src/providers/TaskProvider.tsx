@@ -21,12 +21,24 @@ export const TaskProvider = ({ children }: any) => {
     await axios.post(baseURL, task);
   }
 
+  // PUT task
+  async function updateTask(task: iTask) {
+    await axios.put(`${baseURL}/${task.id}`, task);
+  }
+
+  // DELETE task
+  async function deleteTask(id: number) {
+    await axios.delete(`${baseURL}/${id}`);
+  }
+
   return (
     <TaskContext.Provider
       value={{
         tasks,
         getTasks,
         createTask,
+        updateTask,
+        deleteTask
       }}>
       {children}
     </TaskContext.Provider>
