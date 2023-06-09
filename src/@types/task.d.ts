@@ -7,6 +7,7 @@ export interface iTask {
 }
 
 export type TaskContextType = {
-    tasks: iTask[];
-    getTasks: () => Promise<void>;
-}
+  tasks: iTask[];
+  getTasks: () => Promise<void>;
+  createTask: (task: iTask) => Promise<void>;
+};
