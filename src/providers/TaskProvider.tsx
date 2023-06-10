@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { iTask, TaskContextType } from '../@types/task';
 
-export const TaskContext = createContext<TaskContextType | null>(null);
+export const TaskContext = createContext<TaskContextType>({} as TaskContextType);
 
 export const TaskProvider = ({ children }: any) => {
   const baseURL = process.env.TEST_API_URL!;

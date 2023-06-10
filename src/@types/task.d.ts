@@ -1,9 +1,9 @@
 // @types.task.ts
 
 export interface iTask {
-  _id: number;
+  _id?: number;
   title: string;
-  complete: boolean;
+  complete?: boolean;
 }
 
 export type TaskContextType = {
