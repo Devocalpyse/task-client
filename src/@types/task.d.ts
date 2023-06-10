@@ -1,7 +1,7 @@
 // @types.task.ts
 
 export interface iTask {
-  id: number;
+  _id: number;
   title: string;
   complete: boolean;
 }

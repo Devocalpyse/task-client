@@ -8,7 +8,9 @@ export const TaskProvider = ({ children }: any) => {
   const baseURL = process.env.TEST_API_URL!;
   const [tasks, setTasks] = useState<iTask[]>([]);
 
-  useEffect(() => {});
+  useEffect(() => {
+    getTasks();
+  }, []);
 
   // GET all tasks
   async function getTasks() {
@@ -23,12 +25,12 @@ export const TaskProvider = ({ children }: any) => {
 
   // PUT task
   async function updateTask(task: iTask) {
-    await axios.put(`${baseURL}/${task.id}`, task);
+    await axios.put(`${baseURL}/${task._id}`, task);
   }
 
   // DELETE task
-  async function deleteTask(id: number) {
-    await axios.delete(`${baseURL}/${id}`);
+  async function deleteTask(_id: number) {
+    await axios.delete(`${baseURL}/${_id}`);
   }
 
   return (
