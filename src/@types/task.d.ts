@@ -11,5 +11,6 @@ export type TaskContextType = {
   getTasks: () => Promise<void>;
   createTask: (task: iTask) => Promise<void>;
   updateTask: (task: iTask) => Promise<void>;
-  deleteTask: (id: number) => Promise<void>;
+  toggleTask: (_id: number, status: boolean) => Promise<void>;
+  deleteTask: (_id: number) => Promise<void>;
 };
