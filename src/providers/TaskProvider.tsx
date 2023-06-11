@@ -5,7 +5,7 @@ import { iTask, TaskContextType } from '../@types/task';
 export const TaskContext = createContext<TaskContextType>({} as TaskContextType);
 
 export const TaskProvider = ({ children }: any) => {
-  const baseURL = process.env.TEST_API_URL!;
+  const baseURL = "http://localhost:3000/api/tasks";
   const [tasks, setTasks] = useState<iTask[]>([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const TaskProvider = ({ children }: any) => {
         getTasks,
         createTask,
         updateTask,
-        deleteTask
+        deleteTask,
       }}>
       {children}
     </TaskContext.Provider>
