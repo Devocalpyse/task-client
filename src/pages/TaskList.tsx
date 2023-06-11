@@ -5,6 +5,9 @@ import {
   IonItem,
   IonItemDivider,
   IonItemGroup,
+  IonItemOption,
+  IonItemOptions,
+  IonItemSliding,
   IonLabel,
   IonPage,
   IonTitle,
@@ -16,13 +19,17 @@ import { CheckboxChangeEventDetail } from '@ionic/react';
 import DialogButton from '../components/DialogButton';
 
 const TaskList: React.FC = () => {
-  const { tasks, toggleTask } = useContext(TaskContext);
+  const { tasks, toggleTask, deleteTask } = useContext(TaskContext);
 
   const markOrUnmarkTask: CheckboxChangeEventDetail['value'] = async (
     _id: number,
     status: boolean
   ) => {
     toggleTask(_id, status);
+  };
+
+  const handleDelete = async (_id: number) => {
+    deleteTask(_id);
   };
 
   function generateTasks() {
@@ -35,27 +42,43 @@ const TaskList: React.FC = () => {
           <IonLabel>Incomplete</IonLabel>
         </IonItemDivider>
         {incomplete.map((task) => (
-          <IonItem key={task._id}>
-            <IonCheckbox
-              checked={task.complete}
-              onIonChange={() => markOrUnmarkTask(task._id, true)}
-              justify='space-between'>
-              {task.title}
-            </IonCheckbox>
-          </IonItem>
+          <IonItemSliding key={task._id}>
+            <IonItem>
+              <IonCheckbox
+                checked={task.complete}
+                onIonChange={() => markOrUnmarkTask(task._id, true)}
+                justify='space-between'>
+                {task.title}
+              </IonCheckbox>
+            </IonItem>
+
+            <IonItemOptions>
+              <IonItemOption onClick={() => handleDelete(task._id!)} color='danger'>
+                Delete
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
         ))}
         <IonItemDivider>
           <IonLabel>Complete</IonLabel>
         </IonItemDivider>
         {complete.map((task) => (
-          <IonItem key={task._id}>
-            <IonCheckbox
-              checked={task.complete}
-              onIonChange={() => markOrUnmarkTask(task._id, false)}
-              justify='space-between'>
-              {task.title}
-            </IonCheckbox>
-          </IonItem>
+          <IonItemSliding key={task._id}>
+            <IonItem>
+              <IonCheckbox
+                checked={task.complete}
+                onIonChange={() => markOrUnmarkTask(task._id, false)}
+                justify='space-between'>
+                {task.title}
+              </IonCheckbox>
+            </IonItem>
+
+            <IonItemOptions>
+              <IonItemOption onClick={() => handleDelete(task._id!)} color='danger'>
+                Delete
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
         ))}
       </IonItemGroup>
     );
