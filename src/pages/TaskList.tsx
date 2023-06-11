@@ -16,6 +16,7 @@ import {
 import { TaskContext } from '../providers/TaskProvider';
 import { useContext } from 'react';
 import { CheckboxChangeEventDetail } from '@ionic/react';
+import DialogButton from '../components/DialogButton';
 
 const TaskList: React.FC = () => {
   const { tasks, toggleTask, deleteTask } = useContext(TaskContext);
@@ -85,7 +86,15 @@ const TaskList: React.FC = () => {
 
   return (
     <IonPage>
-      
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Tasks</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent fullscreen>
+        {generateTasks()}
+        <DialogButton />
+      </IonContent>
     </IonPage>
   );
 };
