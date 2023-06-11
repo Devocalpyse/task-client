@@ -6,7 +6,6 @@ import {
   IonItemDivider,
   IonItemGroup,
   IonLabel,
-  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
@@ -14,11 +13,15 @@ import {
 import { TaskContext } from '../providers/TaskProvider';
 import { useContext } from 'react';
 import { CheckboxChangeEventDetail } from '@ionic/react';
+import DialogButton from '../components/DialogButton';
 
 const TaskList: React.FC = () => {
   const { tasks, toggleTask } = useContext(TaskContext);
 
-  const markOrUnmarkTask: CheckboxChangeEventDetail['value'] = async (_id: number, status: boolean) => {
+  const markOrUnmarkTask: CheckboxChangeEventDetail['value'] = async (
+    _id: number,
+    status: boolean
+  ) => {
     toggleTask(_id, status);
   };
 
@@ -65,7 +68,10 @@ const TaskList: React.FC = () => {
           <IonTitle>List of Tasks</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>{generateTasks()}</IonContent>
+      <IonContent fullscreen>
+        {generateTasks()}
+        <DialogButton />
+      </IonContent>
     </IonPage>
   );
 };
