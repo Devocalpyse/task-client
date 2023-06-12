@@ -24,12 +24,6 @@ export const TaskProvider = ({ children }: any) => {
     getTasks();
   }
 
-  // PUT task
-  async function updateTask(task: iTask) {
-    await axios.put(`${baseURL}/${task._id}`, task);
-    getTasks();
-  }
-
   // TOGGLE task
   async function toggleTask(_id: number, status: boolean) {
     await axios.put(`${baseURL}/${_id}`, { complete: status });
@@ -48,7 +42,6 @@ export const TaskProvider = ({ children }: any) => {
         tasks,
         getTasks,
         createTask,
-        updateTask,
         toggleTask,
         deleteTask,
       }}>
