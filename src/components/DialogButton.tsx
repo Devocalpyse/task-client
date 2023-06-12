@@ -10,12 +10,11 @@ import { add } from 'ionicons/icons';
  * @returns {React.FC} A React functional component.
  */
 const DialogButton: React.FC = () => {
-  const { showPrompt } = useDialog();
   const { createTask } = useContext(TaskContext);
 
   // Handles a prompt request, and upon submission, creates a new task. The task must be non-zero in length to pass the if statement.
   const handlePrompt = async () => {
-    const newTask = await showPrompt('NEW TASK', 'Create a new task:');
+    const newTask = await useDialog('NEW TASK', 'Create a new task:');
     if (newTask?.trim()) {
       createTask({ title: newTask.trim() });
     }
