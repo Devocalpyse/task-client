@@ -21,8 +21,15 @@ import './TaskList.css';
 
 // Main page for the app, brings in multiple components and parts from the other parts, consolidates, and then generates a complete "task list" app.
 const TaskList: React.FC = () => {
+  // Get tasks, toggleTask, and deleteTask from TaskContext.
   const { tasks, toggleTask, deleteTask } = useContext(TaskContext);
 
+  /**
+   * Async function to mark or unmark a task as complete.
+   *
+   * @param _id - The ID of the task to mark/unmark.
+   * @param status - The new status of the task (true for complete, false for incomplete).
+   */
   const markOrUnmarkTask: CheckboxChangeEventDetail['value'] = async (
     _id: number,
     status: boolean
@@ -30,11 +37,14 @@ const TaskList: React.FC = () => {
     toggleTask(_id, status);
   };
 
+  // Function to handle the deletion of a task.
   const handleDelete = async (_id: number) => {
     deleteTask(_id);
   };
 
+  // Generate the task list.
   function generateTasks() {
+    // Filter tasks based on whether they are complete or incomplete.
     const complete = tasks.filter((task) => task.complete === true);
     const incomplete = tasks.filter((task) => task.complete === false);
 
@@ -86,6 +96,7 @@ const TaskList: React.FC = () => {
     );
   }
 
+  // Return the task list.
   return (
     <IonPage>
       <IonHeader>
