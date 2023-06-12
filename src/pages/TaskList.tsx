@@ -17,7 +17,9 @@ import { TaskContext } from '../providers/TaskProvider';
 import { useContext } from 'react';
 import { CheckboxChangeEventDetail } from '@ionic/react';
 import DialogButton from '../components/DialogButton';
+import './TaskList.css';
 
+// Main page for the app, brings in multiple components and parts from the other parts, consolidates, and then generates a complete "task list" app.
 const TaskList: React.FC = () => {
   const { tasks, toggleTask, deleteTask } = useContext(TaskContext);
 
@@ -38,8 +40,8 @@ const TaskList: React.FC = () => {
 
     return (
       <IonItemGroup>
-        <IonItemDivider>
-          <IonLabel>Incomplete</IonLabel>
+        <IonItemDivider color='medium'>
+          <IonLabel>TO DO</IonLabel>
         </IonItemDivider>
         {incomplete.map((task) => (
           <IonItemSliding key={task._id}>
@@ -59,8 +61,8 @@ const TaskList: React.FC = () => {
             </IonItemOptions>
           </IonItemSliding>
         ))}
-        <IonItemDivider>
-          <IonLabel>Complete</IonLabel>
+        <IonItemDivider color='tertiary'>
+          <IonLabel>COMPLETE</IonLabel>
         </IonItemDivider>
         {complete.map((task) => (
           <IonItemSliding key={task._id}>
@@ -87,7 +89,7 @@ const TaskList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color='primary'>
           <IonTitle>Tasks</IonTitle>
         </IonToolbar>
       </IonHeader>

@@ -1,0 +1,58 @@
+:root {
+    --ion-color-primary: #E63946;
+    --ion-color-primary-rgb: 230, 57, 70;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #ca323e;
+    --ion-color-primary-tint: #e94d59;
+
+    --ion-color-secondary: #F1FAEE;
+    --ion-color-secondary-rgb: 241, 250, 238;
+    --ion-color-secondary-contrast: #000000;
+    --ion-color-secondary-contrast-rgb: 0, 0, 0;
+    --ion-color-secondary-shade: #d4dcd1;
+    --ion-color-secondary-tint: #f2fbf0;
+
+    --ion-color-tertiary: #A8DADC;
+    --ion-color-tertiary-rgb: 168, 218, 220;
+    --ion-color-tertiary-contrast: #000000;
+    --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+    --ion-color-tertiary-shade: #94c0c2;
+    --ion-color-tertiary-tint: #b1dee0;
+
+    --ion-color-success: #457B9D;
+    --ion-color-success-rgb: 69, 123, 157;
+    --ion-color-success-contrast: #ffffff;
+    --ion-color-success-contrast-rgb: 255, 255, 255;
+    --ion-color-success-shade: #3d6c8a;
+    --ion-color-success-tint: #5888a7;
+
+    --ion-color-warning: #ffc409;
+    --ion-color-warning-rgb: 255, 196, 9;
+    --ion-color-warning-contrast: #000000;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
+    --ion-color-warning-shade: #e0ac08;
+    --ion-color-warning-tint: #ffca22;
+
+    --ion-color-danger: #E66A6D;
+    --ion-color-danger-rgb: 230, 106, 109;
+    --ion-color-danger-contrast: #000000;
+    --ion-color-danger-contrast-rgb: 0, 0, 0;
+    --ion-color-danger-shade: #ca5d60;
+    --ion-color-danger-tint: #e9797c;
+
+    --ion-color-medium: #1D3557;
+    --ion-color-medium-rgb: 29, 53, 87;
+    --ion-color-medium-contrast: #ffffff;
+    --ion-color-medium-contrast-rgb: 255, 255, 255;
+    --ion-color-medium-shade: #1a2f4d;
+    --ion-color-medium-tint: #344968;
+
+    --ion-color-light: #f4f5f8;
+    --ion-color-light-rgb: 244, 245, 248;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0, 0, 0;
+    --ion-color-light-shade: #d7d8da;
+    --ion-color-light-tint: #f5f6f9;
+
+}
