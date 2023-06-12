@@ -1,8 +1,9 @@
-import { IonButton } from '@ionic/react';
+import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import { useDialog } from '../hooks/useDialog';
 import { useContext } from 'react';
 import { TaskContext } from '../providers/TaskProvider';
 import { iTask } from '../@types/task';
+import { add } from 'ionicons/icons';
 
 const DialogButton: React.FC = () => {
   const { showPrompt } = useDialog();
@@ -19,9 +20,11 @@ const DialogButton: React.FC = () => {
   };
 
   return (
-    <IonButton color='primary' onClick={handlePrompt}>
-      Create Task
-    </IonButton>
+    <IonFab slot='fixed' vertical='bottom' horizontal='end'>
+      <IonFabButton color='primary' onClick={handlePrompt}>
+        <IonIcon icon={add} />
+      </IonFabButton>
+    </IonFab>
   );
 };
 
